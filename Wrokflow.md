@@ -6,7 +6,7 @@
 - [ ] /product/delete
 
 <!-- this is the product -->
-- [ ] Product schema
+- [x] Product schema
 - [ ] show product
 - [ ] update product [ ] (s)
 - [ ] add product [ ] (s)

@@ -7,6 +7,9 @@ dotEnv.config();
 // Create an express app
 const app = express();
 
+// db config here
+const db = require('./Model/Connection');
+
 // use json format
 app.use(express.json());
 

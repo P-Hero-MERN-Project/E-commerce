@@ -15,11 +15,15 @@ app.use(express.json());
 
 // always use router after use(cors())
 const {ProductRouter}  = require('./Routes/Product.route.js');
+const { OrderRouter } = require('./Routes/Order.route.js');
 
 
 
 // Add the product router to the app
 app.use('/product', ProductRouter);
+
+// Add the Order router to the app
+app.use('/Order', OrderRouter);
 
 
 // Set the port

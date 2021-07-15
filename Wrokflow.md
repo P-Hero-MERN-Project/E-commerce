@@ -12,8 +12,16 @@
 - [x] add product [ ] (s)
 - [x] delete product [ ] (s)
 
+
+<!-- Order Route -->
+- [x] /Order/add
+- [ ] /Order/update
+- [ ] /Order/delete
+- [ ] /Order/show
+
 <!-- this is the order -->
-- [ ] Order Schema
+- [x] Order Schema
+- [x] create Order [ ] (s)
 - [ ] show order[ ] (s)(one user)
 - [ ] update order status [ ] (s)
 - [ ] delete order [ ] (s)

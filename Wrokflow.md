@@ -1,3 +1,10 @@
+<!-- Product route -->
+- [ ] /product/all
+- [ ] /product/get/5
+- [ ] /product/add
+- [ ] /product/update/
+- [ ] /product/delete
+
 <!-- this is the product -->
 - [ ] Product schema
 - [ ] show product

@@ -1,17 +1,21 @@
 const express = require('express');
 const dotEnv = require('dotenv');
-const {ProductRouter}  = require('./Routes/Product.route.js');
+const cors = require('cors');
 // dotEnv config here
 dotEnv.config();
 
 // Create an express app
 const app = express();
 
-// db config here
-const db = require('./Model/Connection');
+// Allow cross-origin requests
+app.use(cors());
 
 // use json format
 app.use(express.json());
+
+// always use router after use(cors())
+const {ProductRouter}  = require('./Routes/Product.route.js');
+
 
 
 // Add the product router to the app

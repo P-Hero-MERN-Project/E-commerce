@@ -44,8 +44,9 @@
     - [x] send info using jsonWebToken
 
 
-- [ ] file upload using multer
-    - [ ] setup storage
+
+- [x] file upload using multer
+    - [x] setup storage
     - [ ] route
-    - [ ] sent file
-    - [ ] catch file data
+    - [x] sent file
+    - [x] catch file data

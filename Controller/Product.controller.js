@@ -50,3 +50,15 @@ module.exports.deleteProduct = async(req, res)=>{
         res.status(500).json({err});
     }
 }
+
+
+// upload file
+module.exports.uploadFile = async(req, res)=>{
+  try{
+
+    console.log(req.file);
+
+  }catch(err){
+    res.status(500).json({err});
+  }
+}

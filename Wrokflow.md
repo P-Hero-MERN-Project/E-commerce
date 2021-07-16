@@ -42,3 +42,10 @@
 - [x] Admin login
     - [x] Admin password check
     - [x] send info using jsonWebToken
+
+
+- [ ] file upload using multer
+    - [ ] setup storage
+    - [ ] route
+    - [ ] sent file
+    - [ ] catch file data

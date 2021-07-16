@@ -10,11 +10,11 @@ const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster
 const multer = require("multer");
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(bodyParser.urlencoded({ extended: true }));
 // internal imports
 const productRouter= require("./Routes/productRoute")
 const orderProductRouter= require("./Routes/orderProductRoute")
-
+const uploadRouter= require("./Routes/UploadImage")
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -29,6 +29,7 @@ mongoose
   //routing setup
 app.use("/admin",productRouter)
 app.use("/order",orderProductRouter)
+app.use("/",uploadRouter)
 
 
 //app.use(multer({des: 'image'}).single('image'));

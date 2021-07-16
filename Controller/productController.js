@@ -1,6 +1,22 @@
-const mongoose = require('mongoose');
-
+//internat import
 const {ProductList} = require("../Model/product.schema")
+
+//get all products
+async function getAllProducts(req,res,next){
+  try{
+      let products = await ProductList.find({}).exec()
+      if(products.length > 0){
+          res.status(200).json(products)
+      }
+      else{
+        res.status(404).json({ message: "No Product found" });
+      }
+    }
+    catch(err){
+        res.status(500).json({ err });
+    }
+  };
+
 
 //Post a new product to db
 async function postAddProduct(req,res,next){
@@ -36,57 +52,47 @@ async function postAddProduct(req,res,next){
     });
 }
 
-//Edit Product
-exports.editProduct=(req,res,next)=>{
-    var response = {};
-    // first find out record exists or not
-    // if it does then update the record
-    ProductList.findById(req.params.id,function(err,data){
-        if(err) {
-            response = {"error" : true,"message" : "Error fetching data"};
-        } else {
-  
-            if(req.body.MovieName !== undefined) {
-            
-                data.MovieName = req.body.MovieName;
-            }
-            if(req.body.Language !== undefined) {
-               
-                data.Language = req.body.Language;
-            }
-            if(req.body.ReleaseDate !== undefined) {
-               
-                data.ReleaseDate = req.body.ReleaseDate;
-            }
-           
-            if(req.body.Budget !== undefined) {
-               
-                data.Budget = req.body.Budget;
-            }
-            if(req.body.Collection !== undefined) {
-               
-                data.Collection = req.body.Collection;
-            }
-            if(req.body.MoviePoster !== undefined) {
-               
-                data.MoviePoster = req.body.MoviePoster;
-            }
-            
-            // save the data
-            data.save(function(err){
-                if(err) {
-                    response = {"error" : true,"message" : "Error updating data"};
-                } else {
-                    response = {"error" : false,"message" : "Data is updated for "+req.params.id};
-                }
-                res.json(response);
-            })
+//update product
+async function updateProduct(req,res,next){
+    let product =req.body;
+    try{
+
+        let updateProduct = await ProductList.findOne({_id: req.body._id}).exec();
+        if(updateProduct){
+            res.status(200).json({message:"Product update successfully."})
         }
-    });
+        else{
+            res.status(404).json({message:"Product cannot update."});
+        }
+    }
+    catch(err){
+        res.status(500).json({err});
+    }
+  
 }
 
+//delete product
+async function deleteProduct(req,res,next){
+try{
+    let product = await ProductList.findOne({_id: req.body._id}).exec();
+    if(product){
+        product.remove();
+        res.status(200).json({message:"Product deleted successfully."});
+    }
+    else{
+        res.status(404).json({message:"Product cannot delete."});
+    }
+}
+    catch(err){
+        res.status(500).json({err});
+    }
+
+} 
 
 //export 
 module.exports={
+    getAllProducts,
     postAddProduct,
+    updateProduct,
+    deleteProduct
 }

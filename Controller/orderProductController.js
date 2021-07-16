@@ -1,6 +1,22 @@
-const mongoose = require('mongoose');
-
+//internat import
 const {OrderProduct} =require("./../Model/orderProduct.schema")
+
+//get all order products
+async function getOrderProducts(req,res,next){
+    try{
+    let orderProduct = await OrderProduct.find({}).exec()
+    if (orderProduct.length > 0){
+        res.status(200).json(orderProduct)
+    }
+    else{
+        res.status(404).json({ message: "No Order Product found" });
+    }
+
+    }
+    catch(err){
+        res.status(500).json({ err });
+    }
+}
 
 //Post a new product to db
 async function postOrderProduct(req,res,next){

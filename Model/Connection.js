@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const AdminSchema = require('./AdminSchema');
 const OrderSchema = require('./OrderSchema');
 const ProductSchema = require('./ProductSchema');
 
@@ -7,6 +8,7 @@ const db = mongoose.connect(`mongodb://${process.env.DB_URL}/${process.env.DB_NA
 
 const Product = mongoose.model("Product", ProductSchema);
 const Order = mongoose.model("Order", OrderSchema);
+const Admin = mongoose.model("Admin", AdminSchema);
 
 
-module.exports = {db, Product, Order}
+module.exports = {db, Product, Order, Admin}

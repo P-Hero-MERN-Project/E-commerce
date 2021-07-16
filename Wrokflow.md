@@ -26,3 +26,19 @@
 - [x] show order[ ] (s)(one user)
 - [x] update order status [ ] (s)
 - [x] delete order [ ] (s)
+
+
+<!-- Admin route -->
+- [x] /admin/create
+- [ ] /admin/login
+
+
+<!-- Admin authentication -->
+- [x] Admin Schema
+- [x] Admin create
+    - [x] Admin password bcrypt
+    - [x] joi use for form validation
+
+- [ ] Admin login
+    - [ ] Admin password check
+    - [ ] send info using jsonWebToken

@@ -16,14 +16,18 @@ app.use(express.json());
 // always use router after use(cors())
 const {ProductRouter}  = require('./Routes/Product.route.js');
 const { OrderRouter } = require('./Routes/Order.route.js');
+const { AdminRouter } = require('./Routes/Admin.route.js');
 
 
+// add the admin router to the express app
+app.use('/admin', AdminRouter);
 
 // Add the product router to the app
 app.use('/product', ProductRouter);
 
 // Add the Order router to the app
 app.use('/Order', OrderRouter);
+
 
 
 // Set the port

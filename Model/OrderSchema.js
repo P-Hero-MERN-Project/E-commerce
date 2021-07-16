@@ -18,6 +18,17 @@ const OrderSchema = new mongoose.Schema({
     default: Date.now(),
   },
 
+  status:{
+    type:{
+      "1":"Pending",
+      "2":"Processing",
+      "3":"Shipped",
+      "4":"Delivered"
+    },
+    default:{"1":"Pending"}
+
+  },
+
   shippingAddress: {
     type: {
       address: {

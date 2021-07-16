@@ -15,13 +15,14 @@
 
 <!-- Order Route -->
 - [x] /Order/add
-- [ ] /Order/update
-- [ ] /Order/delete
-- [ ] /Order/show
+- [x] /Order/update/status
+- [x] /Order/delete
+- [x] /Order/show
+- [ ] /Order/show/3
 
 <!-- this is the order -->
 - [x] Order Schema
 - [x] create Order [ ] (s)
-- [ ] show order[ ] (s)(one user)
-- [ ] update order status [ ] (s)
-- [ ] delete order [ ] (s)
+- [x] show order[ ] (s)(one user)
+- [x] update order status [ ] (s)
+- [x] delete order [ ] (s)

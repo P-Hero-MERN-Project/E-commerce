@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
-const config = require("config")
+
 
 //internal import 
 const {Admin,validateRegister,validateLogin} = require("./../Model/admin.schema")
@@ -33,8 +33,12 @@ async function authenticateAdmin (req, res,next) {
     let isMatch = await bcrypt.compare(password,admin.password);
     if(!isMatch) return res.status(400).send("Email or Password is wrong");
     
-    const token=  jwt.sign({id:admin._id}, config.get("jwtPrivateKey"))
-    res.status(200).send(token);
+    jwt.sign({user}, "secretkey",{expiresIn: "1h"}, (err, token)=>{
+        res.json({
+         token,email,
+        })
+      })
+    
 }
 
 module.exports = {

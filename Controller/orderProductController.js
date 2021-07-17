@@ -51,4 +51,5 @@ await orderProduct.save((err,product)=>{
 //export
 module.exports={
     postOrderProduct,
+    getOrderProducts
 }

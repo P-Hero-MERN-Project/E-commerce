@@ -5,6 +5,8 @@ const catchAsyncError = require('../middleWares/catchAsyncError')
 
 // create new product = /api/v1/admin/product/new
 exports.newProduct = catchAsyncError (async (req, res, next) => {
+
+    req.body.user = req.user.id
     
     const product = await Product.create(req.body)
 

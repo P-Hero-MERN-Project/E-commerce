@@ -27,3 +27,5 @@ exports.sendStripApi = catchAsyncError(async (req, res, next) => {
     })
 
 })
+
+//DB_URI = mongodb+srv://eCommerce:eCommerce@cluster0.h25va.mongodb.net/ecommerce?retryWrites=true&w=majority

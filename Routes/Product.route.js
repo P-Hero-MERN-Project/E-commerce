@@ -8,13 +8,15 @@ const router = express.Router();
 
 router.get('/all', getAllProducts);
 
-router.post('/add', addProduct);
+router.post('/add', upload.single('image'), addProduct);
 
 router.put('/update', updateProduct);
 
 router.delete('/delete', deleteProduct);
 
 router.post('/file', upload.single('myphoto') , uploadFile);
+
+
 
 // export is here
 module.exports.ProductRouter = router;

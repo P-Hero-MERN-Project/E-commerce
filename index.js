@@ -19,6 +19,7 @@ const { OrderRouter } = require('./Routes/Order.route.js');
 const { AdminRouter } = require('./Routes/Admin.route.js');
 
 
+
 // add the admin router to the express app
 app.use('/admin', AdminRouter);
 
@@ -36,3 +37,5 @@ const port  = process.env.PORT || 5000;
 
 // Set the port and run the app 
 app.listen(port, () => console.log(`Server is running on port ${port}`))
+
+module.exports = app;

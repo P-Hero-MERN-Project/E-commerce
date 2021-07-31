@@ -17,7 +17,7 @@ const upload = multer({storage});
 
 // making a unique name
 const fileUniqueName = (fileName)=>{
-    let name = `${Math.random()*5}${Math.random()*10}${Math.random()*100}${Date.now()}${path.extname(fileName)}`;
+    let name = `${Math.round(Math.random()*5)}${Math.round(Math.random()*10)}${Math.round(Math.random()*100)}${Date.now()}${path.extname(fileName)}`;
     return name;
 }
 

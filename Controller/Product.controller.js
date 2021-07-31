@@ -1,4 +1,7 @@
+
 const { Product } = require("../Model/Connection");
+
+
 
 // get all products
 module.exports.getAllProducts = async (req, res) => {
@@ -15,10 +18,11 @@ module.exports.getAllProducts = async (req, res) => {
 // add a product
 module.exports.addProduct = async (req, res) => {
   try {
-    let product = req.body;
-    let newProduct = await new Product(product);
-    await newProduct.validate();
-    await newProduct.save();
+    let product = JSON.parse(req.body.data);
+    console.log(product, req.file);
+    // let newProduct = await new Product(product);
+    // await newProduct.validate();
+    // await newProduct.save();
     res.status(200).json({ message: "Product added successfully." });
   } catch (err) {
     res.status(500).json({ err });
@@ -56,7 +60,7 @@ module.exports.deleteProduct = async(req, res)=>{
 module.exports.uploadFile = async(req, res)=>{
   try{
 
-    console.log(req.file);
+    console.log(req.file, req.body);
 
   }catch(err){
     res.status(500).json({err});
